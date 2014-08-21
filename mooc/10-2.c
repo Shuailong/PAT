@@ -1,37 +1,51 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
-char* substr(char* line, char* sub)
+int iscontain(char* s1, char* s2)
 {
-	p = strstr(line, sub);
-	if(p == NULL){
-		break;
+	int i,j;
+
+	for(i = 0; i <= strlen(s1)-strlen(s2); ++i){
+		int ti = i;
+		int count = 0;
+		for(j = 0; j < strlen(s2); ++j){
+			if(s1[ti++] == s2[j]){
+				++count;
+			}
+		}
+		if(count == strlen(s2)){
+			return 1;
+		}
 	}
-	for(i = 0; i < p-line; ++i){
-		buff[i] = line[i];
-	}
-	strcat(buff, p+strlen(sub));
-	return buff;
+	return 0;
 }
 
 int main()
 {
-	char line[81];
-	char sub[81];
-	int i, j;
-	char *p;
-	char *q;
-	int pos;
-	char buff[81];
+	char s1[81], s2[81];
+	char temp[81];
+	int len,i, j;
 
-	gets(line);
-	gets(sub);
-
-	p = line;
-	for(j = 0; j < 3; ++j){
-		p = substr(p, sub);
+	gets(s1);
+	gets(s2);
+	
+	while(iscontain(s1, s2)){
+		for(i = 0; i <= strlen(s1)-strlen(s2); ++i){
+			int ti = i;
+			int count = 0;
+			for(j = 0; j < strlen(s2); ++j){
+				if(s1[ti++] == s2[j]){
+					++count;
+				}
+			}
+			if(count == strlen(s2)){
+				strcpy(s1+i, s1+i+strlen(s2));			
+			}
+		}
 	}
-	puts(p);
+	puts(s1);
+
 
 	return 0;
 }
