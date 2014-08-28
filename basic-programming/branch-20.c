@@ -16,7 +16,7 @@ int main()
       o = 0;
     }
 
-    printf("sign(%d) = %d", n, o);
+    printf("sign(%d) = %d\n", n, o);
 
     return 0;
 }
