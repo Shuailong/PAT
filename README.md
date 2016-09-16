@@ -1,4 +1,4 @@
 PAT
 ===
 
-ZJU PAT Problems.   http://pat.zju.edu.cn
+ZJU PAT Problems.   http://www.patest.cn
